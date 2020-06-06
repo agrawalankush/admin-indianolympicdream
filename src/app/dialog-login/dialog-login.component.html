@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Login into Admin App</h2>
+<mat-dialog-content>
+  <form [formGroup]="loginform" class="login-container">
+  <mat-form-field  appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" placeholder="example@gmail.com">
+    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Hint</mat-hint> -->
+    <mat-error *ngIf="loginform.get('email').hasError('required')">
+      email is required
+    </mat-error>
+    <mat-error *ngIf="loginform.get('email').hasError('email')">
+        Please enter valid email id
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field  appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password">
+    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Hint</mat-hint> -->
+    <mat-error *ngIf="loginform.get('password').hasError('required')">
+      password is required
+    </mat-error>
+  </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-flat-button color="warn" mat-dialog-close>Cancel</button>
+  <button mat-flat-button [disabled]="!loginform.valid" color="primary" [mat-dialog-close]="true" cdkFocusInitial>GO!!</button>
+</mat-dialog-actions>

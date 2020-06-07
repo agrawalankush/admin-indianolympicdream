@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogLoginComponent} from '../dialog-login/dialog-login.component';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,7 +9,10 @@ import { DialogLoginComponent} from '../dialog-login/dialog-login.component';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    private dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }

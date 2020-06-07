@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-dialog-login',
   templateUrl: './dialog-login.component.html',
@@ -10,9 +9,7 @@ export class DialogLoginComponent implements OnInit {
   public errmsg: string;
   public loginform: FormGroup;
   constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {

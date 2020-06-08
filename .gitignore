@@ -44,3 +44,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#Environment Variables File
+.env
+
+#Private Key
+/server/id_rsa_priv.pem

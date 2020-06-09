@@ -1,4 +1,5 @@
 <h2 mat-dialog-title>Login into Admin App</h2>
+<div><mat-error *ngIf="errmsg">{{errmsg}}</mat-error></div>
 <mat-dialog-content>
   <form [formGroup]="loginform" class="login-container">
   <mat-form-field  appearance="outline">
@@ -26,5 +27,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-flat-button color="warn" mat-dialog-close>Cancel</button>
-  <button mat-flat-button [disabled]="!loginform.valid" color="primary">GO!!</button>
+  <button mat-flat-button [disabled]="!loginform.valid" (click)="login()" color="primary">GO!!</button>
 </mat-dialog-actions>

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
-
 import {  catchError, retry, tap } from 'rxjs/operators';
-
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,29 +11,32 @@ export class AuthService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
-  constructor(private http: HttpClient) { }
+  private authbaseurl = '/api/users';
+  constructor(private http: HttpClient,
+              private router: Router) { }
   login(loginform: any) {
-    return this.http.post(`/api/login`, loginform, this.httpOptions).pipe(
+    return this.http.post(`${this.authbaseurl}/login`, loginform, this.httpOptions).pipe(
       tap(res => this.storeTokenAndlogIn(res)),
       retry(1),
       catchError(this.handleError)
     );
   }
   get isLoggedIn() {
-    const Token = localStorage.getItem('token');
+    const Token = localStorage.getItem('jwttoken');
     if (Token) {
       this.loggedIn.next(true);
     }
     return this.loggedIn.asObservable();
   }
   storeTokenAndlogIn(jwtres) {
-    localStorage.setItem('token', jwtres.token);
+    localStorage.setItem('jwttoken', jwtres.token);
+    localStorage.setItem('expiresIn', jwtres.expiresIn);
     this.loggedIn.next(true);
   }
   removeTokenAndlogOut() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('jwttoken');
     this.loggedIn.next(false);
-    // this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -49,9 +51,9 @@ export class AuthService {
       // The response body may contain clues as to what went wrong,
       console.error(
         `Backend returned code ${error.status}, ` +
-        `body was: ${error.error.message}`);
+        `body was: ${error.error.msg}`);
       return throwError(
-          'I screwed-up on my server somewhere, Please try again after sometime or report to me directly!');
+          `${error.error.msg}`);
         }
     }
 

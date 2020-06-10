@@ -5,12 +5,12 @@ import { AuthGuard } from './auth/auth.guard';
 import { AnonymousGuard } from './auth/anonymous.guard';
 // Components
 import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomepageComponent } from './homepage/homepage.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AnonymousGuard] },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: HomepageComponent, canActivate: [AuthGuard] },
   { path: 'internal-error', component: ServerErrorComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PagenotfoundComponent }

@@ -25,4 +25,10 @@ $admin-indianolympicdream-theme: mat-light-theme($admin-indianolympicdream-prima
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($admin-indianolympicdream-theme);
+:root {
+  --color-primary: #{mat-color($admin-indianolympicdream-primary)};
+  --color-accent: #{mat-color($admin-indianolympicdream-accent)};
+  --color-background: #fafafa;
+  // --color-success: #{mat-color($forms-app-success)};
+}
 

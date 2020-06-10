@@ -10,20 +10,20 @@ import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home.component';
 import { DialogLoginComponent } from './dialog-login/dialog-login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DialogLoginComponent,
-    DashboardComponent,
     PagenotfoundComponent,
     ServerErrorComponent,
-    LoaderComponent
+    LoaderComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

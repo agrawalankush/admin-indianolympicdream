@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
       <div>
         <img class="errorimage" src="./assets/404errorpage.png">
-        <button mat-button routerLink="/home">This will take you back home</button>
+        <button mat-button routerLink="/login">This will take you back home</button>
       </div>
   `,
   styles: [

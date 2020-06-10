@@ -8,7 +8,7 @@ import { MaterialModule } from './material/material.module';
 import { httpInterceptorProviders } from './http-interceptors/index';
 import { AppComponent } from './app.component';
 
-import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { DialogLoginComponent } from './dialog-login/dialog-login.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
@@ -18,7 +18,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    LoginComponent,
     DialogLoginComponent,
     PagenotfoundComponent,
     ServerErrorComponent,

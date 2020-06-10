@@ -16,9 +16,15 @@
   </mat-form-field>
   <mat-form-field  appearance="outline">
     <mat-label>Password</mat-label>
-    <input matInput formControlName="password">
+    <input matInput [type]=" showpassword ? 'text' : 'password'" formControlName="password">
     <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
     <mat-hint>Hint</mat-hint> -->
+    <button type="button" *ngIf="!showpassword" matSuffix mat-icon-button aria-label="icon-button with a Eye off icon" (click)="showpassword=!showpassword;">
+      <mat-icon>visibility_off</mat-icon>
+  </button>
+  <button type="button" *ngIf="showpassword" matSuffix mat-icon-button aria-label="icon-button with a Eye icon" (click)="showpassword=!showpassword">
+      <mat-icon>visibility</mat-icon>
+  </button>
     <mat-error *ngIf="loginform.get('password').hasError('required')">
       password is required
     </mat-error>

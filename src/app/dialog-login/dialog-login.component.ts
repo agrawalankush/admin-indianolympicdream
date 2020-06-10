@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable, BehaviorSubject, of as observableOf, merge } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-dialog-login',
   templateUrl: './dialog-login.component.html',
@@ -11,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class DialogLoginComponent implements OnInit {
   public errmsg: string;
+  public showpassword = false;
   public loginform: FormGroup;
   public loggedIn = new BehaviorSubject<boolean>(false);
   constructor(
@@ -34,7 +36,7 @@ export class DialogLoginComponent implements OnInit {
           (res) => {
             // console.log(res);
             this.close();
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['home']);
           },
           (error) => {
             console.log(error);

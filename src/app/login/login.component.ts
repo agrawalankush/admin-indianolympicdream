@@ -3,11 +3,11 @@ import {MatDialog} from '@angular/material/dialog';
 import { DialogLoginComponent} from '../dialog-login/dialog-login.component';
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class HomeComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,

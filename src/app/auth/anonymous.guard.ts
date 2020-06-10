@@ -21,7 +21,7 @@ export class AnonymousGuard implements CanActivate {
         if (!isuserLoggedIn) {
           return true;
         }
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/home']);
         // console.log('loggedIn user tring to accss login page');
         return false;
       })

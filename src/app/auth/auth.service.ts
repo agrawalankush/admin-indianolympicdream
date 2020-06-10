@@ -35,8 +35,9 @@ export class AuthService {
   }
   removeTokenAndlogOut() {
     localStorage.removeItem('jwttoken');
+    localStorage.removeItem('expiresIn');
     this.loggedIn.next(false);
-    this.router.navigate(['/home']);
+    this.router.navigate(['/login']);
   }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

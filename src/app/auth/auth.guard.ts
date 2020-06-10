@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate {
         if (isuserLoggedIn) {
           return true;
         }
-        this.router.navigate(['/home']);
+        this.router.navigate(['/login']);
          // console.log('accessing admin routes without logging in');
         return false;
       })

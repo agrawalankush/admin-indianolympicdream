@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
         console.log('Database connected');
     });
 } else {
-    console.log('Delopment connection On!!');
+    console.log('Devlopment connection On!!');
     mongoose.connect(devConnection, {
         useNewUrlParser: true,
         useUnifiedTopology: true

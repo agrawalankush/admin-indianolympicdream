@@ -1,20 +1,20 @@
-<h2 mat-dialog-title>Login into Admin App</h2>
+<h2 style="text-align: center;" mat-dialog-title>Login</h2>
 <div><mat-error *ngIf="errmsg">{{errmsg}}</mat-error></div>
 <mat-dialog-content>
   <form [formGroup]="loginform" class="login-container">
-  <mat-form-field  appearance="outline">
+  <mat-form-field  appearance="fill">
     <mat-label>Email</mat-label>
     <input matInput formControlName="email" placeholder="example@gmail.com">
     <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
     <mat-hint>Hint</mat-hint> -->
     <mat-error *ngIf="loginform.get('email').hasError('required')">
-      email is required
+      Nope....
     </mat-error>
     <mat-error *ngIf="loginform.get('email').hasError('email')">
-        Please enter valid email id
+      And Naah againn...
     </mat-error>
   </mat-form-field>
-  <mat-form-field  appearance="outline">
+  <mat-form-field  appearance="fill">
     <mat-label>Password</mat-label>
     <input matInput [type]=" showpassword ? 'text' : 'password'" formControlName="password">
     <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
@@ -26,12 +26,11 @@
       <mat-icon>visibility</mat-icon>
   </button>
     <mat-error *ngIf="loginform.get('password').hasError('required')">
-      password is required
+      Sorry, can't let you in buddy, not with empty password!!
     </mat-error>
   </mat-form-field>
   </form>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-flat-button color="warn" mat-dialog-close>Cancel</button>
-  <button mat-flat-button [disabled]="!loginform.valid" (click)="login()" color="primary">GO!!</button>
+<mat-dialog-actions align="center">
+  <button mat-flat-button [disabled]="!loginform.valid" (click)="login()" color="primary">Get Inn!!</button>
 </mat-dialog-actions>

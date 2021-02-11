@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   openDialogLogin() {
-    const dialogRef = this.dialog.open(DialogLoginComponent);
+    const dialogRef = this.dialog.open(DialogLoginComponent,{ hasBackdrop: true, panelClass: 'login-panel'});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
